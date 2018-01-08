@@ -33,6 +33,7 @@
 <td>{{ isset($row->manholes->name) ? $row->manholes->name : '' }}</td>
 
                             <td>
+                                <a href="{{ route('admin.radninalog.show',[$row->id]) }}" class="btn btn-xs btn-primary">View</a>
                                 {!! link_to_route(config('quickadmin.route').'.radninalog.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
                                 {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.radninalog.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}

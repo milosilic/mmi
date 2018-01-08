@@ -103,6 +103,26 @@ $manholes = Manholes::pluck("name", "id")->prepend('Please select', 0);
 	}
 
     /**
+     * Display RadniNalog.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $relations = [
+            'users' => \App\User::get()->pluck('name', 'id')->prepend('Please select', ''),
+            'manholes' => \App\Manholes::get()->pluck('name', 'id')->prepend('Please select', ''),
+        ];
+
+        $radninalog = RadniNalog::findOrFail($id);
+
+        //return redirect()->route(config('quickadmin.route').'.radninalog.index');
+        return view(config('quickadmin.route').'.radninalog.show', compact('radninalog') + $relations);
+    }
+
+
+    /**
      * Mass delete function from index page
      * @param Request $request
      *
