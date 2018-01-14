@@ -2,7 +2,19 @@
 
 @section('content')
     <h3 class="page-title">Radni nalog</h3>
-    
+    <script>
+        function initMap() {
+            var uluru = {lat: {{ $radninalog->manholes->latitude or '' }}, lng: {{ $radninalog->manholes->longitude or '' }}};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
     <div class="panel panel-default">
         <div class="panel-heading">
             View
@@ -15,7 +27,7 @@
                         <tr><th>Project</th>
                     <td>{{ $radninalog->manholes->name or '' }}</td></tr><tr><th>Transaction type</th>
                     <td>{{ $radninalog->transaction_type->title or '' }}</td></tr><tr><th>Income source</th>
-                    <td>{{ $radninalog->income_source->title or '' }}</td></tr><tr><th>Title</th>
+                    <td>{{ $radninalog->income_sousetrce->title or '' }}</td></tr><tr><th>Title</th>
                     <td>{{ $radninalog->title }}</td></tr><tr><th>Description</th>
                     <td>{!! $radninalog->description !!}</td></tr><tr><th>Amount</th>
                     <td>{{ $radninalog->amount }}</td></tr><tr><th>Currency</th>
@@ -23,6 +35,7 @@
                     <td>{{ $radninalog->transaction_date }}</td></tr>
                     </table>
                 </div>
+                <div class="col-md-6" id="map" style="height: 300px"></div>
             </div>
 
             <p>&nbsp;</p>
