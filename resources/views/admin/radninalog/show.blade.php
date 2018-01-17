@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 
 @section('content')
-    <h3 class="page-title">Radni nalog</h3>
     <script>
         function initMap() {
             var uluru = {lat: {{ $radninalog->manholes->latitude or '' }}, lng: {{ $radninalog->manholes->longitude or '' }}};

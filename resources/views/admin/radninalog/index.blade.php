@@ -1,11 +1,57 @@
 @extends('admin.layouts.master')
 
 @section('content')
+    <script type="application/javascript">
+
+        var locations = [];
+
+        function initMap() {
+            console.log(locations[0]);
+                var belgrade = {lat: 44.1, lng: 22.2};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 17,
+                    center: locations[0]
+                });
+
+            // Create an array of alphabetical characters used to label the markers.
+            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var bounds = new google.maps.LatLngBounds();
+            var markers = locations.map(function(location, i) {
+                let tempMarker = new google.maps.Marker({
+                    position: location,
+                    map:map,
+                    label: labels[i % labels.length]
+                });
+                bounds.extend(tempMarker.getPosition());
+                return tempMarker;
+
+            });
+
+
+            map.fitBounds(bounds);
+
+            function addMarker(location) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+                markerCluster.addMarker(marker);
+            }
+
+        }
+
+        function addMarkerToArray(element) {
+            locations.push(element);
+            console.log(element);
+        }
+
+
+    </script>
 
 <p>{!! link_to_route(config('quickadmin.route').'.radninalog.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
 
 @if ($radninalog->count())
-    <div class="portlet box green">
+    <div id="table" class="portlet box green col-md-6">
         <div class="portlet-title">
             <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
         </div>
@@ -40,6 +86,7 @@
                                 {!! Form::close() !!}
                             </td>
                         </tr>
+                        <script> addMarkerToArray({lng:{{$row->manholes->longitude}}, lat: {{$row->manholes->latitude}}});</script>
                     @endforeach
                 </tbody>
             </table>
@@ -48,13 +95,17 @@
                     <button class="btn btn-danger" id="delete">
                         {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
                     </button>
+                    {!! link_to_route(config('quickadmin.route').'.radninalog.create', trans('quickadmin::templates.templates-view_index-view_checked') , null, array('class' => 'btn btn-primary')) !!}
                 </div>
+
             </div>
             {!! Form::open(['route' => config('quickadmin.route').'.radninalog.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
             {!! Form::close() !!}
         </div>
 	</div>
+    <div id="map" class="portlet box green col-md-6" >
+    </div>
 @else
     {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
 @endif

@@ -1,5 +1,3 @@
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap"
-        type="text/javascript"></script>
 <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
@@ -8,6 +6,8 @@
 <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
 <script src="{{ url('quickadmin/js') }}/bootstrap.min.js"></script>
 <script src="{{ url('quickadmin/js') }}/main.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap"
+        type="text/javascript"></script>
 
 <script>
 
@@ -27,5 +27,10 @@
             "url": "{{ trans('quickadmin::strings.datatable_url_language') }}"
         }
     });
+
+    $(function () {
+        $('#map').height($('#table').height())
+    });
+
 
 </script>

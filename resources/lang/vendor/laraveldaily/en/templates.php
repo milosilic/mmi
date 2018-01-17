@@ -33,6 +33,7 @@ return [
 
   // templates-view_index
   'templates-view_index-add_new' => 'Add new',
+  'templates-view_index-view_checked'=>'View checked',
   'templates-view_index-list' => 'List',
   'templates-view_index-edit' => 'Edit',
   'templates-view_index-delete' => 'Delete',
