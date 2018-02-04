@@ -23,7 +23,7 @@ class ManholesController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $manholes = Manholes::all();
+        $manholes = Manholes::limit(2000)->get();
 
 		return view('admin.manholes.index', compact('manholes'));
 	}

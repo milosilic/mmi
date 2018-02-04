@@ -3,20 +3,20 @@
 return [
 
     // dashboard
-    'dashboard-title'                       => 'Welcome to your project dashboard',
+    'dashboard-title'                       => 'Dobrodošli',
 
     // partials-header
-    'partials-header-title'                 => 'QuickAdmin en',
+    'partials-header-title'                 => 'I M W A',
 
     // partials-sidebar
-    'partials-sidebar-menu'                 => 'Menu',
-    'partials-sidebar-users'                => 'Users',
-    'partials-sidebar-roles'                => 'Roles',
-    'partials-sidebar-user-actions'         => 'User actions',
-    'partials-sidebar-logout'               => 'Logout',
+    'partials-sidebar-menu'                 => 'Meni',
+    'partials-sidebar-users'                => 'Korisnici',
+    'partials-sidebar-roles'                => 'Korisničke grupe',
+    'partials-sidebar-user-actions'         => 'Istorija promena',
+    'partials-sidebar-logout'               => 'Odjavite se',
 
     // partials-topbar
-    'partials-topbar-title'                 => 'QuickAdmin en',
+    'partials-topbar-title'                 => 'I M W A',
 
     // users-create
     'users-create-create_user'              => 'Create user',

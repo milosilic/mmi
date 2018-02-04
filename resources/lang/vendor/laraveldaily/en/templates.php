@@ -19,20 +19,20 @@ return [
   'templates-menu_field_line-comment_below_placeholder' => 'Optional additional comment below the field',
 
   // templates-customView_index
-  'templates-customView_index-list' => 'List',
+  'templates-customView_index-list' => 'Lista',
   'templates-customView_index-welcome_custom_view' => 'Welcome to your custom view',
 
   // templates-view_create
-  'templates-view_create-add_new' => 'Add new',
+  'templates-view_create-add_new' => 'Dodaj novi',
   'templates-view_create-create' => 'Create',
 
   // templates-view_create
-  'templates-view_edit-edit' => 'Edit',
-  'templates-view_edit-update' => 'Update',
-  'templates-view_edit-cancel' => 'Cancel',
+  'templates-view_edit-edit' => 'Promeni',
+  'templates-view_edit-update' => 'Ažuriraj',
+  'templates-view_edit-cancel' => 'Prekini',
 
   // templates-view_index
-  'templates-view_index-add_new' => 'Add new',
+  'templates-view_index-add_new' => 'Dodaj novi',
   'templates-view_index-view_checked'=>'View checked',
   'templates-view_index-list' => 'List',
   'templates-view_index-edit' => 'Edit',
