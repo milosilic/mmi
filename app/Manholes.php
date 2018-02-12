@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Manholes extends Model {
 
+
+    protected $connection = 'mysql2';
+
+
     use SoftDeletes;
 
     /**
